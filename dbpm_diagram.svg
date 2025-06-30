@@ -1,0 +1,65 @@
+<svg width="780" height="480" viewBox="0 0 780 480" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <!-- Environmental Inputs -->
+  <rect x="40" y="40" width="230" height="120" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+  <text x="155" y="65" text-anchor="middle" font-weight="bold" font-size="16">Environmental Inputs</text>
+  <text x="60" y="95" font-size="14">- Temperature (column &amp; seafloor)</text>
+  <text x="60" y="115" font-size="14">- Biomass: small phytoplankton</text>
+  <text x="60" y="135" font-size="14">- Biomass: large phytoplankton</text>
+  <text x="60" y="155" font-size="14">- Depth</text>
+
+  <!-- Pelagic Predators -->
+  <rect x="420" y="70" width="190" height="90" fill="#ffe0b2" stroke="#ef6c00" stroke-width="2"/>
+  <text x="515" y="95" text-anchor="middle" font-weight="bold" font-size="16">Pelagic Predators</text>
+  <text x="515" y="125" text-anchor="middle" font-size="13">Size-structured</text>
+  <text x="515" y="145" text-anchor="middle" font-size="13">Feed on pelagic &amp; benthic</text>
+
+  <!-- Benthic Detritivores -->
+  <rect x="420" y="250" width="190" height="90" fill="#c8e6c9" stroke="#388e3c" stroke-width="2"/>
+  <text x="515" y="275" text-anchor="middle" font-weight="bold" font-size="16">Benthic Detritivores</text>
+  <text x="515" y="305" text-anchor="middle" font-size="13">Size-structured</text>
+  <text x="515" y="325" text-anchor="middle" font-size="13">Feed on detritus</text>
+
+  <!-- Detritus Pool -->
+  <ellipse cx="320" cy="340" rx="70" ry="38" fill="#fffde7" stroke="#fbc02d" stroke-width="2"/>
+  <text x="320" y="345" text-anchor="middle" font-weight="bold" font-size="15">Detritus Pool</text>
+  <text x="320" y="363" text-anchor="middle" font-size="13">Sinking &amp; recycled material</text>
+
+  <!-- Habitat Complexity -->
+  <rect x="670" y="250" width="90" height="50" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" opacity="0.85"/>
+  <text x="715" y="270" text-anchor="middle" font-size="13">Habitat</text>
+  <text x="715" y="285" text-anchor="middle" font-size="13">Complexity</text>
+  <text x="715" y="299" text-anchor="middle" font-size="12" fill="#7b1fa2">(optional)</text>
+
+  <!-- Fishing -->
+  <rect x="670" y="70" width="90" height="50" fill="#ffcdd2" stroke="#c62828" stroke-width="2" opacity="0.9"/>
+  <text x="715" y="90" text-anchor="middle" font-size="13">Fishing</text>
+  <text x="715" y="105" text-anchor="middle" font-size="13">Size-specific</text>
+  <text x="715" y="121" text-anchor="middle" font-size="12" fill="#c62828">(optional)</text>
+
+  <!-- Arrows -->
+  <!-- Inputs to both communities -->
+  <line x1="270" y1="80" x2="420" y2="110" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="270" y1="120" x2="420" y2="295" stroke="#388e3c" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- Detritus to detritivores -->
+  <line x1="390" y1="340" x2="420" y2="295" stroke="#fbc02d" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- Pelagic to benthic predation -->
+  <path d="M610,110 Q660,180 610,295" fill="none" stroke="#ef6c00" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="652" y="210" fill="#ef6c00" font-size="12" transform="rotate(28,652,210)">Feeding (size-based)</text>
+  <!-- Pelagic cannibalism -->
+  <path d="M570,110 C590,85 640,110 570,140" fill="none" stroke="#ef6c00" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="605" y="100" fill="#ef6c00" font-size="12">Intraguild Predation</text>
+  <!-- Detritus from pelagic and benthic -->
+  <line x1="515" y1="160" x2="320" y2="302" stroke="#fbc02d" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="515" y1="340" x2="390" y2="340" stroke="#fbc02d" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- Fishing to pelagic -->
+  <line x1="670" y1="95" x2="610" y2="110" stroke="#c62828" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- Habitat to benthic -->
+  <line x1="670" y1="275" x2="610" y2="295" stroke="#7b1fa2" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 L6,6 L2,2" fill="#333"/>
+    </marker>
+  </defs>
+</svg>
