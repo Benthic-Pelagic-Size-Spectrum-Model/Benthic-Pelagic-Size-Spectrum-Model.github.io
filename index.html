@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Benthic-Pelagic Size Spectrum Model</title>
+  <title>Dynamic Benthic Pelagic Size Spectrum Model</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body { font-family: Arial, sans-serif; background: #f8f9fa; margin: 0; padding: 0; }
@@ -10,6 +10,12 @@
     main { max-width: 800px; margin: 2rem auto; padding: 1rem; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
     h1 { margin: 0 0 1rem 0; }
     .org-info { margin-bottom: 2rem; }
+    .pub-section { margin-bottom: 2rem; }
+    .pub-section h3 { margin-bottom: 0.5rem; margin-top: 1.5rem; }
+    ul.publications { margin-left: 1.5em; margin-bottom: 1em; }
+    ul.publications li { margin-bottom: 0.6em; }
+    .diagram-container { text-align: center; margin: 2rem 0; }
+    .diagram-caption { font-size: 0.98em; color: #444; margin-top: 0.5em; }
     footer { text-align: center; color: #888; padding: 1rem; font-size: 0.9em; }
     a { color: #003366; text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -17,57 +23,127 @@
 </head>
 <body>
   <header>
-    <h1>Benthic-Pelagic Size Spectrum Model</h1>
-    <p>Welcome to the Benthic-Pelagic Size Spectrum Model Organization</p>
+    <h1>Dynamic Benthic Pelagic Size Spectrum Model</h1>
+    <p> </p>
   </header>
   <main>
     <section class="org-info">
       <h2>About</h2>
+      <div class="diagram-container">
+        <!-- DBPM Model SVG Diagram -->
+        <svg width="650" height="410" viewBox="0 0 780 480" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+          <!-- Environmental Inputs -->
+          <rect x="40" y="40" width="230" height="120" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+          <text x="155" y="65" text-anchor="middle" font-weight="bold" font-size="16">Environmental Inputs</text>
+          <text x="60" y="95" font-size="14">- Temperature (column &amp; seafloor)</text>
+          <text x="60" y="115" font-size="14">- Biomass: small phytoplankton</text>
+          <text x="60" y="135" font-size="14">- Biomass: large phytoplankton</text>
+          <text x="60" y="155" font-size="14">- Depth</text>
+        
+          <!-- Pelagic Predators -->
+          <rect x="420" y="70" width="190" height="90" fill="#ffe0b2" stroke="#ef6c00" stroke-width="2"/>
+          <text x="515" y="95" text-anchor="middle" font-weight="bold" font-size="16">Pelagic Predators</text>
+          <text x="515" y="125" text-anchor="middle" font-size="13">Size-structured</text>
+          <text x="515" y="145" text-anchor="middle" font-size="13">Feed on pelagic &amp; benthic</text>
+        
+          <!-- Benthic Detritivores -->
+          <rect x="420" y="250" width="190" height="90" fill="#c8e6c9" stroke="#388e3c" stroke-width="2"/>
+          <text x="515" y="275" text-anchor="middle" font-weight="bold" font-size="16">Benthic Detritivores</text>
+          <text x="515" y="305" text-anchor="middle" font-size="13">Size-structured</text>
+          <text x="515" y="325" text-anchor="middle" font-size="13">Feed on detritus</text>
+        
+          <!-- Detritus Pool -->
+          <ellipse cx="320" cy="340" rx="70" ry="38" fill="#fffde7" stroke="#fbc02d" stroke-width="2"/>
+          <text x="320" y="345" text-anchor="middle" font-weight="bold" font-size="15">Detritus Pool</text>
+          <text x="320" y="363" text-anchor="middle" font-size="13">Sinking &amp; recycled material</text>
+        
+          <!-- Habitat Complexity -->
+          <rect x="670" y="250" width="90" height="50" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" opacity="0.85"/>
+          <text x="715" y="270" text-anchor="middle" font-size="13">Habitat</text>
+          <text x="715" y="285" text-anchor="middle" font-size="13">Complexity</text>
+          <text x="715" y="299" text-anchor="middle" font-size="12" fill="#7b1fa2">(optional)</text>
+        
+          <!-- Fishing -->
+          <rect x="670" y="70" width="90" height="50" fill="#ffcdd2" stroke="#c62828" stroke-width="2" opacity="0.9"/>
+          <text x="715" y="90" text-anchor="middle" font-size="13">Fishing</text>
+          <text x="715" y="105" text-anchor="middle" font-size="13">Size-specific</text>
+          <text x="715" y="121" text-anchor="middle" font-size="12" fill="#c62828">(optional)</text>
+        
+          <!-- Arrows -->
+          <!-- Inputs to both communities -->
+          <line x1="270" y1="80" x2="420" y2="110" stroke="#1565c0" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="270" y1="120" x2="420" y2="295" stroke="#388e3c" stroke-width="2" marker-end="url(#arrow)"/>
+          <!-- Detritus to detritivores -->
+          <line x1="390" y1="340" x2="420" y2="295" stroke="#fbc02d" stroke-width="2" marker-end="url(#arrow)"/>
+          <!-- Pelagic to benthic predation -->
+          <path d="M610,110 Q660,180 610,295" fill="none" stroke="#ef6c00" stroke-width="2" marker-end="url(#arrow)"/>
+          <text x="652" y="210" fill="#ef6c00" font-size="12" transform="rotate(28,652,210)">Feeding (size-based)</text>
+          <!-- Pelagic cannibalism -->
+          <path d="M570,110 C590,85 640,110 570,140" fill="none" stroke="#ef6c00" stroke-width="2" marker-end="url(#arrow)"/>
+          <text x="605" y="100" fill="#ef6c00" font-size="12">Intraguild Predation</text>
+          <!-- Detritus from pelagic and benthic -->
+          <line x1="515" y1="160" x2="320" y2="302" stroke="#fbc02d" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="515" y1="340" x2="390" y2="340" stroke="#fbc02d" stroke-width="2" marker-end="url(#arrow)"/>
+          <!-- Fishing to pelagic -->
+          <line x1="670" y1="95" x2="610" y2="110" stroke="#c62828" stroke-width="2" marker-end="url(#arrow)"/>
+          <!-- Habitat to benthic -->
+          <line x1="670" y1="275" x2="610" y2="295" stroke="#7b1fa2" stroke-width="2" marker-end="url(#arrow)"/>
+        
+          <!-- Arrow marker definition -->
+          <defs>
+            <marker id="arrow" markerWidth="13" markerHeight="13" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+              <path d="M2,2 L10,6 L2,10 L6,6 L2,2" fill="#333"/>
+            </marker>
+          </defs>
+        </svg>
+        <div class="diagram-caption">
+          <b>Figure:</b> Schematic of the Dynamic Benthic-Pelagic Size Spectrum Model (DBPM). Environmental inputs (top left) drive the size-structured dynamics of pelagic predators and benthic detritivores. Pelagic predators feed on smaller pelagic and benthic animals; benthic detritivores feed on detritus. Optional components include habitat complexity and size-specific fishing. Arrows indicate flows of biomass and trophic interactions.
+        </div>
+      </div>
       <p>
-This organization develops and maintains the <strong>DBPM (Dynamic Benthic Pelagic Size Spectrum Model (DBPM))</strong>, 
-        a tool for exploring the size structure and dynamics of benthic and pelagic communities in aquatic ecosystems. DBPM is a global application for studying climate change impacts on marine ecosystems and potential fisheries as part of the Fish-MIP and ISI-MIP projects and the Australian Research Council Discovery Project "Rewiring Marine Foodwebs".
-
-        DBPM is a coupled physical-ecological model that is forced with climate variables and can be applied globally (1 degree grid cells) or aggregated into Large Marine Ecosystems (lmes) or other spatial units. The ecological model is a dynamic size spectrum model for modelling the coupling "pelagic" size-based predators and "benthic" detritivores that share a unstructured resource pool (detritus).
-
-The global model results for fish-mip have been published as part of an ensemble including the following papers:
-
-        Blanchard JL, Watson RA, Fulton EA, Cottrell RS, Nash KL, Bryndum-Buchholz A, Büchner M, Carozza DA, Cheung WWL, Elliott J, Davidson LK, Dulvy NK, Dunne JP, Eddy TD, Galbraith E, Lotze HK, Maury O, Müller C, Tittensor DP & Jennings S. 2017.Linked sustainability challenges and trade-offs among fisheries, aquaculture and agriculture. Nature Ecology & Evolution, 1: 240–1249
-        
-        Lotze HK, Tittensor DP, Bryndum-Buchholz A, Eddy T, Cheung WWL, Galbraith ED, Barange M, Barrier N, Bianchi D, Blanchard JL, Bopp L, Büchner M, Bulman CM, Carozza DA, Christensen V, Coll M, Dunne JP, Fulton EA, Jennings S, Jones MC, Mackinson S, Maury O, Niiranen S, Oliveros-Ramos R, Roy T, Fernandes JA, Schewe J, Shin Y-J, Silva TAM, Steenbeek JA, Stock CA, Verley P, Volkholz J, Walker ND, Worm B. 2019 Global ensemble projections reveal trophic amplification of ocean biomass declines with climate change. Proceedings of the National Academy of Sciences.116(26):12907-12912.
-        
-        Bryndum‐Buchholz A, Tittensor DP, Blanchard JL, Cheung WWL, Coll MC, Galbraith ED, Jennings S, Maury O, Lotze HK. 2019. Twenty‐first‐century climate change impacts on marine animal biomass and ecosystem structure across ocean basins. Global Change Biology. 25(2):459-472
-        
-        Bryndum-Buchholz A, Prentice F, Tittensor DP, Blanchard JL, Cheung WWL, Christensen V, Galbraith ED, Maury O, Lotze HK. 2020. Differing marine animal biomass shifts under 21st century climate change between Canada’s three oceans, FACETS,doi/10.1139/facets-2019-0035
-
-Previous versions of the coupled physical-ecological model have been been used for climate change projections here:
-
-        Blanchard, J.L., Jennings, S., Holmes, R., Harle, J., Merino, G., Allen, I., Holt, J, Dulvy N.K., & Barange, M. 2012. Potential consequences of climate change for primary production and fish production in large marine ecosystems. Philosophical Transactions of the Royal Society of London: Biological Sciences, 367, 2979-2989.
-        
-        Merino G, Barange M, Blanchard JL, Harle JL, Holmes, Icarus Allen, Edward H Allison, Marie Caroline Badjeck, Nicholas K Dulvy, Jason Holt, Simon Jennings, Christian Mullon, Lynda D Rodwell. 2012. Can marine fisheries and aquaculture meet fish demand from a growing human population in a changing climate? Global Environmental Change. 22(4): 795-806.
-        
-        Barange M, Merino G, Blanchard JL, Scholtens J, Harle J, Allison EH, Allen JI, Holt J, Jennings S. 2014. Impacts of climate change on marine ecosystem production in societies dependent on fisheries. Nature Climate Change. 4(3):211-216
-        
-        Woodworth‐Jefcoats PA, Polovina JP, Dunne JP, Blanchard JL. 2013. Ecosystem size structure response to 21st century climate projection: large fish abundance decreases in the central North Pacific and increases in the California Current. Global Change Biology.19 (3), 724-733
-        
-        Woodworth-Jefcoats PA, Polovina JJ, Howell EA, Blanchard JL. 2015. Two takes on the ecosystem impacts of climate change and fishing: Comparing a size-based and a species-based ecosystem model in the central North Pacific.Progress in Oceanography. 138, 533-545
-
-The original benthic-pelagic ecological size spectrum model was developed in the following papers:
-
-      Blanchard, J.L., Jennings, S., Law, R., Castle, M.D., McCloghrie P.,Rochet, M.J. & E. Benoît. 2009. How does abundance scale with body size in coupled size-structured food webs? Journal of Animal Ecology. 78: 270–280.
-      
-      Blanchard, J.L., Law, R. ,Castle, M.D. & S. Jennings. 2011. Coupled energy pathways and the resilience of size-structured food webs. Theoretical Ecology. 4(3) 289-300
-
-Extensions to the ecological model have also been made to capture habitat complexity and coral reef applications, including herbivore and macroalgae components. These have been published below (and see https://github.com/alicerogers).
-
-      Rogers A, Blanchard JL, Mumby PJ. 2014. Vulnerability of coral reef fisheries to a loss of structural complexity. Current Biology. 24(9): 1000-1005.
-
-      Rogers A, Blanchard JL, Mumby PJ. 2018. Fisheries productivity under progressive coral reef degradation. Current Biology. Journal of Applied Ecology. 55(3):1041-1049.
-
-      Rogers A, Blanchard JL, Newman SP, Dryden CS, Mumby PJ. 2018. High refuge availability on coral reefs increases the vulnerability of reef‐associated predators to overexploitation. Ecology. 99(2:450-463
-
-Please contact Julia Blanchard if you are interested in using this model, for more information or to get involved in development.
-
-        
+        This organization develops and maintains the <strong>DBPM (Dynamic Benthic Pelagic Size Spectrum Model)</strong>,
+        a tool for exploring the size structure and dynamics of benthic and pelagic communities in aquatic ecosystems.
+        DBPM is a global application for studying climate change impacts on marine ecosystems.
+        <br><br>
+        DBPM is a coupled physical-ecological model that is forced with climate variables and can be applied globally
+        (1 degree grid cells) or aggregated into Large Marine Ecosystems (LMEs) or other regions of interest.
+      </p>
+      <div class="pub-section">
+        <h3>Key Publications: Global Model Results for Fish-MIP</h3>
+        <ul class="publications">
+          <li>Blanchard JL, Watson RA, Fulton EA, Cottrell RS, Nash KL, Bryndum-Buchholz A, Büchner M, Carozza DA, Cheung WWL, Elliott J, Davidson LK, Dulvy NK, Dunne JP, Eddy TD, Galbraith E, Lotze HK, Maury O, Muller-Karger F, Tittensor DP. 2017. <i>Linked sustainability challenges and trade-offs for global fisheries.</i> Nature Ecology & Evolution, 1(9), 1240-1249.</li>
+          <li>Lotze HK, Tittensor DP, Bryndum-Buchholz A, Eddy T, Cheung WWL, Galbraith ED, Barange M, Barrier N, Bianchi D, Blanchard JL, Bopp L, Büchner M, Bulman CM, Carozza DA, Christensen V, Coll M, Dunne JP, Fernandes JA, Fulton EA, Hobday AJ, Huber V, Jennings S, Jones MC, Mackinson S, Maury O, Niiranen S, Oliveros-Ramos R, Roy T, Schewe J, Shin YJ, Silva TAM, Steenbeek J, Stock CA, Verley P, Volkholz J, Walker ND, Watson RA, Zeller D. 2019. <i>Global ensemble projections reveal trophic amplification of ocean biomass declines with climate change.</i> Proceedings of the National Academy of Sciences, 116(26), 12907-12912.</li>
+          <li>Bryndum‐Buchholz A, Tittensor DP, Blanchard JL, Cheung WWL, Coll MC, Galbraith ED, Jennings S, Maury O, Lotze HK. 2019. <i>Twenty‐first‐century climate change impacts on marine animal biomass and ecosystem structure across ocean basins.</i> Global Change Biology, 25(2), 459-472.</li>
+          <li>Bryndum-Buchholz A, Prentice F, Tittensor DP, Blanchard JL, Cheung WWL, Christensen V, Galbraith ED, Maury O, Lotze HK. 2020. <i>Differing marine animal biomass shifts under 21st century climate change between Canada's three oceans.</i> Frontiers in Marine Science, 7, 212.</li>
+        </ul>
+      </div>
+      <div class="pub-section">
+        <h3>Previous Versions: Climate Change Projections</h3>
+        <ul class="publications">
+          <li>Blanchard, J.L., Jennings, S., Holmes, R., Harle, J., Merino, G., Allen, I., Holt, J, Dulvy N.K., & Barange, M. 2012. <i>Potential consequences of climate change for primary production and fish production in large marine ecosystems.</i> Philosophical Transactions of the Royal Society B, 367(1605), 2979-2989.</li>
+          <li>Merino G, Barange M, Blanchard JL, Harle JL, Holmes, Icarus Allen, Edward H Allison, Marie Caroline Badjeck, Nicholas K Dulvy, Jason Holt, Simon Jennings, Christian Mullon, Lynda D Rodwell. 2012. <i>Can marine fisheries and aquaculture meet fish demand from a growing human population in a changing climate?</i> Global Environmental Change, 22(4), 795-806.</li>
+          <li>Barange M, Merino G, Blanchard JL, Scholtens J, Harle J, Allison EH, Allen JI, Holt J, Jennings S. 2014. <i>Impacts of climate change on marine ecosystem production in societies dependent on fisheries.</i> Nature Climate Change, 4(3), 211-216.</li>
+          <li>Woodworth‐Jefcoats PA, Polovina JP, Dunne JP, Blanchard JL. 2013. <i>Ecosystem size structure response to 21st century climate projection: large fish abundance decreases in the central North Pacific, but not the California Current.</i> Global Change Biology, 19(3), 724-733.</li>
+          <li>Woodworth-Jefcoats PA, Polovina JJ, Howell EA, Blanchard JL. 2015. <i>Two takes on the ecosystem impacts of climate change and fishing: Comparing a size-based and a species-based ecosystem model in the central North Pacific.</i> Progress in Oceanography, 138, 533-545.</li>
+        </ul>
+      </div>
+      <div class="pub-section">
+        <h3>Original Model Development</h3>
+        <ul class="publications">
+          <li>Blanchard, J.L., Jennings, S., Law, R., Castle, M.D., McCloghrie P., Rochet, M.J. & E. Benoît. 2009. <i>How does abundance scale with body size in coupled size-structured food webs?</i> Journal of Animal Ecology, 78(1), 270-280.</li>
+          <li>Blanchard, J.L., Law, R. ,Castle, M.D. & S. Jennings. 2011. <i>Coupled energy pathways and the resilience of size-structured food webs.</i> Theoretical Ecology, 4(3), 289-300.</li>
+        </ul>
+      </div>
+      <div class="pub-section">
+        <h3>Extensions for Habitat Complexity and Coral Reefs</h3>
+        <ul class="publications">
+          <li>Rogers A, Blanchard JL, Mumby PJ. 2014. <i>Vulnerability of coral reef fisheries to a loss of structural complexity.</i> Current Biology, 24(9), 1000-1005.</li>
+          <li>Rogers A, Blanchard JL, Mumby PJ. 2018. <i>Fisheries productivity under progressive coral reef degradation.</i> Journal of Applied Ecology, 55(3), 1041-1049.</li>
+          <li>Rogers A, Blanchard JL, Newman SP, Dryden CS, Mumby PJ. 2018. <i>High refuge availability on coral reefs increases the vulnerability of reef‐associated predators to overexploitation.</i> Ecology, 99(2), 450-459.</li>
+        </ul>
+      </div>
+      <p>
+        Please contact Julia Blanchard if you are interested in using this model, for more information, or to get involved in development.
       </p>
     </section>
     <section class="repo-info">
