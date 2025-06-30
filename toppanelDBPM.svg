@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 424.35 130.17">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 424.35 137.1">
   <defs>
     <style>
       .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12 {
@@ -280,9 +280,9 @@
         <polygon class="cls-19" points="183.67 40.72 179.65 38.5 183.59 36.14 183.67 40.72"/>
       </g>
     </g>
-    <text class="cls-13" transform="translate(129.15 6.39)"><tspan x="0" y="0">Input: size-strutured resource</tspan></text>
+    <text class="cls-13" transform="translate(129.15 6.39)"><tspan x="0" y="0">Input: size-structured resource</tspan></text>
     <text class="cls-13" transform="translate(248.06 96.25)"><tspan x="0" y="0">Benthic Detritivores:</tspan><tspan x="0" y="8.93">size-based competition</tspan><tspan x="0" y="17.87">for shared food</tspan></text>
-    <text class="cls-13" transform="translate(253.12 16.78)"><tspan x="0" y="0">Pelagic predators:</tspan><tspan x="0" y="8.93">size-structured</tspan><tspan x="0" y="17.87">inter- and intraguild</tspan><tspan x="0" y="26.8">predation</tspan></text>
+    <text class="cls-13" transform="translate(251.33 6.39)"><tspan x="0" y="0">Pelagic predators:</tspan><tspan x="0" y="8.93">size-structured</tspan><tspan x="0" y="17.87">inter- and intraguild</tspan><tspan x="0" y="26.8">predation</tspan></text>
     <text class="cls-13" transform="translate(127.98 70.9)"><tspan x="0" y="0">Detritus:</tspan><tspan x="0" y="8.93">pool of</tspan><tspan x="0" y="17.87">sinking </tspan><tspan x="0" y="26.8">dead</tspan><tspan x="0" y="35.73">material</tspan></text>
     <text/>
     <text/>
@@ -321,5 +321,9 @@
     <text/>
     <line class="cls-6" x1="317.92" y1="38.55" x2="340.19" y2="54.56"/>
     <line class="cls-9" x1="340.19" y1="54.56" x2="322.4" y2="82.03"/>
+    <line class="cls-6" x1="120.45" y1="39.59" x2="98.18" y2="55.59"/>
+    <line class="cls-9" x1="98.18" y1="55.59" x2="115.96" y2="83.06"/>
+    <text class="cls-13" transform="translate(45.82 57.58)"><tspan x="0" y="0">Modified by </tspan><tspan x="0" y="8.93">climate change</tspan><tspan x="0" y="17.87">variables</tspan></text>
+    <text/>
   </g>
 </svg>
