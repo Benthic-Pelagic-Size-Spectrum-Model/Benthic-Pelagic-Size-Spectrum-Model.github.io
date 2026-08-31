@@ -19,6 +19,11 @@
     footer { text-align: center; color: #888; padding: 1rem; font-size: 0.9em; }
     a { color: #003366; text-decoration: none; }
     a:hover { text-decoration: underline; }
+    table.esm { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.93em; }
+    table.esm th, table.esm td { border: 1px solid #ddd; padding: 0.4em 0.6em; text-align: left; vertical-align: top; }
+    table.esm th { background: #003366; color: #fff; }
+    table.esm tr:nth-child(even) { background: #f2f5f8; }
+    table.esm code { background: #eef; padding: 0 0.2em; border-radius: 3px; }
   </style>
 </head>
 <body>
@@ -42,9 +47,39 @@
           <b>Figure:</b> Schematic of the Dynamic Benthic-Pelagic Size Spectrum Model (DBPM). Environmental inputs (top left) drive the size-structured dynamics of pelagic predators and benthic detritus, which in turn affect biomass flows, fish production, and ecosystem responses.
         </div>
       </div>
-      <p>
-
-      </p>
+      <div class="pub-section">
+        <h3>Model Inputs: Earth System Model Forcing</h3>
+        <p>
+          DBPM is driven by outputs from an Earth System Model (ESM; e.g. GFDL-MOM6-COBALT2 in the
+          ISIMIP3a/FishMIP protocol, monthly). These variables are processed into the model's forcing &mdash;
+          the plankton size spectrum, temperature effects, and detritus/export supply:
+        </p>
+        <table class="esm">
+          <thead>
+            <tr><th>ESM variable</th><th>Dimensions</th><th>Units</th><th>Used for</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>phyc</code> &mdash; total phytoplankton carbon</td><td>3D (lon, lat, depth, time)</td><td>mol m&#8315;&#179;</td><td>plankton size-spectrum intercept &amp; slope; vertical biomass weights</td></tr>
+            <tr><td><code>phypico</code> &mdash; picophytoplankton carbon</td><td>3D</td><td>mol m&#8315;&#179;</td><td>small-vs-large phyto split &rarr; spectrum slope</td></tr>
+            <tr><td><code>thetao</code> &mdash; ocean temperature</td><td>3D</td><td>&deg;C</td><td>pelagic (water-column) temperature effect</td></tr>
+            <tr><td><code>tob</code> &mdash; sea-floor temperature</td><td>2D</td><td>&deg;C</td><td>benthic temperature effect</td></tr>
+            <tr><td><code>tos</code> &mdash; sea-surface temperature</td><td>2D</td><td>&deg;C</td><td>surface temperature effect; export-ratio formula</td></tr>
+            <tr><td><code>intpp</code> &mdash; integrated primary production</td><td>2D</td><td>mol m&#8315;&#178; s&#8315;&#185;</td><td>export-ratio denominator</td></tr>
+            <tr><td><code>expc-bot</code> &mdash; carbon export flux to seafloor</td><td>2D</td><td>mol m&#8315;&#178; s&#8315;&#185;</td><td>export ratio &rarr; benthic detritus supply</td></tr>
+            <tr><td><code>deptho</code> &mdash; ocean depth (bathymetry)</td><td>2D (static)</td><td>m</td><td>depth channel / pelagic&ndash;benthic coupling</td></tr>
+            <tr><td><code>thkcello</code> &mdash; layer thickness</td><td>3D (static)</td><td>m</td><td>weights for vertical integration of the 3D fields</td></tr>
+            <tr><td><code>siconc</code> &mdash; sea-ice concentration</td><td>2D</td><td>%</td><td>sea-ice gate on fishing effort (gridded runs only)</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Plus cell <b>area</b> (m&#178;) for aggregating per-cell densities. The plankton spectrum intercept
+          and slope are derived from <code>phyc</code> and <code>phypico</code>; the export ratio &asymp;
+          <code>expc-bot</code>&nbsp;/&nbsp;<code>intpp</code>; temperature effects from <code>thetao</code> and
+          <code>tob</code>. The depth-resolved (3D) fields are needed for the vertically biomass-weighted method;
+          a standard method can instead use the vertically-integrated <code>phyc-vint</code>/<code>phypico-vint</code>
+          with surface <code>tos</code>.
+        </p>
+      </div>
       <div class="pub-section">
         <h3>Key Publications: Global Model Results for FishMIP</h3>
         <ul class="publications">
