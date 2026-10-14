@@ -129,13 +129,20 @@
       </p>
     </section>
     <section class="repo-info">
-      <h2>Repository</h2>
+      <h2>Model Repositories</h2>
       <p>
-        Visit the main repository: 
-        <a href="https://github.com/Benthic-Pelagic-Size-Spectrum-Model">
-          Benthic-Pelagic-Size-Spectrum-Model
-        </a>
+        All code lives in the
+        <a href="https://github.com/Benthic-Pelagic-Size-Spectrum-Model">Benthic-Pelagic-Size-Spectrum-Model</a>
+        GitHub organisation. The main repositories are:
       </p>
+      <ul class="repos">
+        <li><a href="https://github.com/Benthic-Pelagic-Size-Spectrum-Model/spatial-dbpm"><code>spatial-dbpm</code></a>
+          &mdash; the <strong>dbpmr</strong> R package: the compiled-C DBPM size-spectrum engine, with spatial capabilities.</li>
+        <li><a href="https://github.com/Benthic-Pelagic-Size-Spectrum-Model/dbpmr-gridded-isimip3a"><code>dbpmr-gridded-isimip3a</code></a>
+          &mdash; the <strong>gridded dbpmr</strong> ISIMIP3a workflow (R): runs the engine over every 1&deg; ocean cell of a region, with biomass-weighted forcing, spatial-gravity effort, and gridded calibration.</li>
+        <li><a href="https://github.com/Benthic-Pelagic-Size-Spectrum-Model/dbpm_isimip3a"><code>dbpm_isimip3a</code></a>
+          &mdash; the ISIMIP3a <strong>input-processing</strong> pipeline (Python): Earth System Model netCDFs &rarr; the forcing data the models consume.</li>
+      </ul>
     </section>
     <section class="contact">
       <h2>Contact & Collaboration</h2>
